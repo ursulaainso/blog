@@ -17,4 +17,9 @@
             </li>
         </ul>
     </div>
+    <div class="gap-2">
+        <a href="{{route('register')}}" class="btn btn-primary">Register</a>
+        <a href="{{route('login')}}" class="btn btn-secondary">Login</a>
+
+    </div>    
 </div>
