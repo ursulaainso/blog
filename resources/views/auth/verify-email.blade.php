@@ -1,7 +1,7 @@
 @extends('partials.layout')
 @section('title', __('Register'))
 @section('content')
-    <div class="w-2/3 mx-auto card>
+    <div class="w-2/3 mx-auto card my-20>
         <div class="card-body">
             <div class="w-2/3 mx-auto card bg-base-300">
                 <div class="card-body items-center text-center">
