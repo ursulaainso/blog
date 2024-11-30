@@ -4,7 +4,11 @@
     <div class="w-2/3 mx-auto card bg-base-300">
         <div class="card-body">
             <h2 class="card-title">New Post</h2>
+<<<<<<< HEAD
             <form action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data">
+=======
+            <form action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data"> 
+>>>>>>> ea809b6314b21d9c97c0820f7c7b1229fe1860a7
                 @csrf
                 <label class="w-full form-control">
                     <div class="label">
@@ -28,6 +32,7 @@
                         @enderror
                     </div>
                 </label>
+<<<<<<< HEAD
                 <label class="w-full form-control">
                     <div class="label">
                         <span class="label-text">Image</span>
@@ -35,6 +40,15 @@
                     <input name="image" type="file" accept="image/*" class="w-full file-input file-input-bordered @error('image') file-input-error @enderror" />
                     <div class="label">
                         @error('image')
+=======
+                <label class="form-control">
+                    <div class="label">
+                        <span class="label-text">Image</span>
+                    </div>
+                    <input name="image" type="file" placeholder="Image" accept="image/*" class="w-full input file-input input-bordered @error('title') input-error @enderror" />
+                    <div class="label">
+                        @error('title')
+>>>>>>> ea809b6314b21d9c97c0820f7c7b1229fe1860a7
                             <span class="label-text-alt text-error">{{ $message }}</span>
                         @enderror
                     </div>

@@ -29,6 +29,7 @@
                         @enderror
                     </div>
                 </label>
+<<<<<<< HEAD
                 <label class="w-full form-control">
                     <div class="label">
                         <span class="label-text">Image</span>
@@ -36,6 +37,15 @@
                     <input name="image" type="file" accept="image/*" class="w-full file-input file-input-bordered @error('image') file-input-error @enderror" />
                     <div class="label">
                         @error('image')
+=======
+                <label class="form-control">
+                    <div class="label">
+                        <span class="label-text">Image</span>
+                    </div>
+                    <input name="image" type="file" placeholder="Image" accept="image/*" class="w-full input file-input input-bordered @error('title') input-error @enderror" />
+                    <div class="label">
+                        @error('title')
+>>>>>>> ea809b6314b21d9c97c0820f7c7b1229fe1860a7
                             <span class="label-text-alt text-error">{{ $message }}</span>
                         @enderror
                     </div>

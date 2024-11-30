@@ -8,11 +8,19 @@
     <div class="grid grid-cols-4 gap-2">
         @foreach ($posts as $post)
             <div class="shadow-xl card bg-base-100">
+<<<<<<< HEAD
                 @if($post->displayImage)
                     <figure>
                         <img src="{{ $post->displayImage }}"/>
                     </figure>
                 @endif
+=======
+            @if($post->displayImage)
+                <figure>
+                    <img src="{{$post->displayImage}}" alt="Shoes" />
+                </figure>
+            @endif    
+>>>>>>> ea809b6314b21d9c97c0820f7c7b1229fe1860a7
                 <div class="card-body">
                     <h2 class="card-title">{{ $post->title }}</h2>
                     <p>{{ $post->snippet }}</p>

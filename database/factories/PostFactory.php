@@ -24,9 +24,15 @@ class PostFactory extends Factory
         return [
             'title' => fake()->sentence,
             'body' => fake()->paragraphs(6, true),
+<<<<<<< HEAD
             'image' => 'https://picsum.photos/seed/'. fake()->uuid .'/1280/720',
             'created_at' => $created,
             'updated_at' => $updated,
+=======
+            'image' => 'https://picsum.photos/seed/'. fake()->uuid . '/1280/720',
+            'created_at' => fake()->dateTimeBetween(),
+            'updated_at' => fake()->dateTimeBetween(),
+>>>>>>> ea809b6314b21d9c97c0820f7c7b1229fe1860a7
         ];
     }
 }

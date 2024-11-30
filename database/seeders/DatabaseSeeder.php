@@ -13,7 +13,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+<<<<<<< HEAD
 
+=======
+>>>>>>> ea809b6314b21d9c97c0820f7c7b1229fe1860a7
         $this->call(UserSeeder::class);
         $this->call(PostSeeder::class);
         $this->call(TagSeeder::class);
