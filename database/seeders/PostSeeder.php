@@ -16,16 +16,9 @@ class PostSeeder extends Seeder
     {
         $posts = Post::factory(1000)->make()->sortBy('created_at');
         $users = User::all();
-<<<<<<< HEAD
         foreach($posts as $post){
             $post->user()->associate($users->random());
             $post->save();
         }
-=======
-        foreach($posts as $post) {
-            $post->user_id = User::random()->id;
-            $post -> save();
-       }
->>>>>>> ea809b6314b21d9c97c0820f7c7b1229fe1860a7
     }
 }

@@ -29,7 +29,6 @@
                         @enderror
                     </div>
                 </label>
-<<<<<<< HEAD
                 <label class="w-full form-control">
                     <div class="label">
                         <span class="label-text">Image</span>
@@ -37,19 +36,25 @@
                     <input name="image" type="file" accept="image/*" class="w-full file-input file-input-bordered @error('image') file-input-error @enderror" />
                     <div class="label">
                         @error('image')
-=======
-                <label class="form-control">
-                    <div class="label">
-                        <span class="label-text">Image</span>
-                    </div>
-                    <input name="image" type="file" placeholder="Image" accept="image/*" class="w-full input file-input input-bordered @error('title') input-error @enderror" />
-                    <div class="label">
-                        @error('title')
->>>>>>> ea809b6314b21d9c97c0820f7c7b1229fe1860a7
                             <span class="label-text-alt text-error">{{ $message }}</span>
                         @enderror
                     </div>
                 </label>
+                <label class="w-full max-w-xs form-control">
+                    <div class="label">
+                      <span class="label-text">Tags</span>
+                    </div>
+                    <select name="tags[]" size="{{$tags->count()}}" multiple class="select select-bordered @error('tags.*') select-error @enderror">
+                        @foreach($tags as $tag)
+                            <option @if($post->tags->pluck('id')->contains($tag->id)) selected @endif value="{{ $tag->id }}">{{$tag->name}}</option>
+                        @endforeach
+                    </select>
+                    <div class="label">
+                        @error('tags.*')
+                            <span class="label-text-alt text-error">{{ $message }}</span>
+                        @enderror
+                    </div>
+                  </label>
                 <input type="submit" class="btn btn-primary" value="Update">
             </form>
         </div>

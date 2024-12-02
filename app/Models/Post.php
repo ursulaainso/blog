@@ -6,14 +6,11 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\UploadedFile;
-<<<<<<< HEAD
 use Illuminate\Support\Facades\Auth;
-=======
->>>>>>> ea809b6314b21d9c97c0820f7c7b1229fe1860a7
 use Illuminate\Support\Facades\Storage;
 
 /**
- *
+ * 
  *
  * @property int $id
  * @property string $title
@@ -39,6 +36,7 @@ use Illuminate\Support\Facades\Storage;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Post whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Post whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Post whereUserId($value)
+ * @property-read mixed $auth_has_liked
  * @mixin \Eloquent
  */
 class Post extends Model
@@ -47,12 +45,9 @@ class Post extends Model
     use HasFactory;
 
     protected $fillable = ['title', 'body', 'image'];
-<<<<<<< HEAD
 
     protected $withCount = ['likes'];
 
-=======
->>>>>>> ea809b6314b21d9c97c0820f7c7b1229fe1860a7
     // public function getSnippetAttribute(){
     //     return explode("\n\n", $this->body)[0];
     // }
@@ -71,11 +66,7 @@ class Post extends Model
 
     public function displayImage(): Attribute {
         return Attribute::get(function (){
-<<<<<<< HEAD
             if(!$this->image || parse_url($this->image, PHP_URL_SCHEME)){
-=======
-            if(!$this->image || parse_url($this->image, PHP_URL_SCHEME)) {
->>>>>>> ea809b6314b21d9c97c0820f7c7b1229fe1860a7
                 return $this->image;
             }
             return Storage::disk('public')->url($this->image);
@@ -83,7 +74,6 @@ class Post extends Model
     }
 
     public function image(): Attribute {
-<<<<<<< HEAD
         return Attribute::set(function ($image){
             if($image instanceof UploadedFile){
                 return $image->store('', ['disk' => 'public']);
@@ -110,7 +100,7 @@ class Post extends Model
     }
 
     public function likes(){
-       return $this->hasMany(Like::class);
+        return $this->hasMany(Like::class);
     }
 
     public function tags(){
@@ -129,19 +119,3 @@ class Post extends Model
         });
     }
 }
-=======
-        return Attribute::get(function ($image){
-            if($image instanceof UploadedFile) {
-                return $image->store('', ['disk' => 'public']);
-            }
-        });
-    }
-
-    protected static function booted(): void
-    {
-        static::deleted(function(Post $post) {
-            Storage::disk('public')->delete($post->image);
-        });
-    }
-}
->>>>>>> ea809b6314b21d9c97c0820f7c7b1229fe1860a7
