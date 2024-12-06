@@ -1,8 +1,3 @@
-@extends('partials.layout')
-@section('title', __('Update password form'))
-@section('content') 
-
-
 <div class="flex w-full flex-col">
 
     <h2 class="card-title">{{ __('Update password') }}</h2>
@@ -57,4 +52,3 @@
             <input type="submit" class="btn btn-primary" value="{{ __('Register') }}">
         </div>
     </form>
-@endsection

@@ -6,9 +6,10 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Auth;
 
 /**
- * 
+ *
  *
  * @property int $id
  * @property string $name
@@ -87,5 +88,28 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function likes(){
         return $this->hasMany(Like::class);
+    }
+
+    public function postsComments() {
+        return $this->hasManyThrough(Comment::class, Post::class);
+    }
+
+    public function postsLikes() {
+        return $this->hasManyThrough(Comment::class, Post::class);
+    }
+
+    public function followers() {
+        return $this->hasManyThrough(User::class, Follow::class, 'followee_id', 'id', 'id', 'followe_id');
+    }
+
+    public function followees() {
+        return $this->hasManyThrough(User::class, Follow::class, 'follower_id','id', 'id', 'followee_id');
+    }
+
+    public function authHasFollowed() {
+        if(Auth::check()) {
+            return false;
+        }
+        return $this->followes()->where('follow, follower_id', Auth::id())->exists();
     }
 }

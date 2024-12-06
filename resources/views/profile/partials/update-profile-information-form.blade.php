@@ -1,7 +1,3 @@
-@extends('partials.layout')
-@section('title', __('Update profile information form'))
-@section('content') 
-
 <div>
     <div class="p-4 sm:p-8 bg-base-300 mx-20 shadow sm:rounded-lg">
         <h2 class="card-title">{{ __('Profile information') }}</h2>
@@ -10,9 +6,11 @@
             @csrf
             <label class="w-2/5 form-control">
                 <div class="label">
-                    <span class="label-text">{{__('Name')}}</span>
+                    <span class="label-text">{{ __('Name') }}</span>
                 </div>
-                <input name="name" type="text" placeholder="Name" value="{{ old('name') }}" class="w-full input input-bordered @error('name') input-error @enderror" required autofocus autocomplete="name"/>
+                <input name="name" type="text" placeholder="Name" value="{{ old('name') }}"
+                    class="w-full input input-bordered @error('name') input-error @enderror" required autofocus
+                    autocomplete="name" />
                 <div class="label">
                     @error('email')
                         <span class="label-text-alt text-error">{{ $message }}</span>
@@ -21,9 +19,11 @@
             </label>
             <label class="w-2/5 form-control">
                 <div class="label">
-                    <span class="label-text">{{__('Email')}}</span>
+                    <span class="label-text">{{ __('Email') }}</span>
                 </div>
-                <input name="email" type="email" placeholder="Email" value="{{ old('email') }}" class="w-full input input-bordered @error('email') input-error @enderror" required autofocus autocomplete="username"/>
+                <input name="email" type="email" placeholder="Email" value="{{ old('email') }}"
+                    class="w-full input input-bordered @error('email') input-error @enderror" required autofocus
+                    autocomplete="username" />
                 <div class="label">
                     @error('email')
                         <span class="label-text-alt text-error">{{ $message }}</span>
@@ -35,4 +35,3 @@
             </div>
         </form>
     </div>
-@endsection
