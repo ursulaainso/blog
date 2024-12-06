@@ -1,11 +1,8 @@
-@extends('partials.layout')
-@section('title', __('Update password form'))
-@section('content') 
-
 
 <div class="flex w-full flex-col">
 
     <h2 class="card-title">{{ __('Update password') }}</h2>
+    <p class="text-sm font-light">{{ __("Ensure your account is using a long, random password to stay secure") }}</p>
     <form action="{{ route('password.update') }}" method="POST">
         @csrf
         <label class="w-full form-control">
@@ -41,20 +38,9 @@
                 @enderror
             </div>
         </label>
-        <label class="w-full form-control">
-            <div class="label">
-                <span class="label-text">{{__('Confirm Password')}}</span>
-            </div>
-            <input name="password_confirmation" type="password" placeholder="Password Confirmation" class="w-full input input-bordered @error('password_confirmation') input-error @enderror" required autocomplete="confirm-password" />
-            <div class="label">
-                @error('password_confirmation')
-                    <span class="label-text-alt text-error">{{ $message }}</span>
-                @enderror
-            </div>
-        </label>
-        <div class="text-right">
-            <a class="btn btn-link" href="{{ route('login') }}">{{ __('Already registered?') }}</a>
-            <input type="submit" class="btn btn-primary" value="{{ __('Register') }}">
+        <div class="text-left">
+            {{-- <a class="btn btn-link" href="{{ route('login') }}">{{ __('Already registered?') }}</a> --}}
+            <input type="submit" class="btn btn-primary" value="{{ __('Save') }}">
         </div>
     </form>
-@endsection
+</div>

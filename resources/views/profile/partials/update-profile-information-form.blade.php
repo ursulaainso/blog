@@ -1,14 +1,13 @@
-@extends('partials.layout')
-@section('title', __('Update profile information form'))
-@section('content') 
 
-<div>
-    <div class="p-4 sm:p-8 bg-base-300 mx-20 shadow sm:rounded-lg">
+@section('title', __('Update profile information form'))
+
+
+    <div>
         <h2 class="card-title">{{ __('Profile information') }}</h2>
         <p class="text-sm font-light">{{ __("Update your account's profile information and email address.") }}</p>
         <form action="{{ route('login') }}" method="POST">
             @csrf
-            <label class="w-2/5 form-control">
+            <label class="w-full form-control">
                 <div class="label">
                     <span class="label-text">{{__('Name')}}</span>
                 </div>
@@ -19,7 +18,7 @@
                     @enderror
                 </div>
             </label>
-            <label class="w-2/5 form-control">
+            <label class="w-full form-control">
                 <div class="label">
                     <span class="label-text">{{__('Email')}}</span>
                 </div>
@@ -35,4 +34,3 @@
             </div>
         </form>
     </div>
-@endsection
