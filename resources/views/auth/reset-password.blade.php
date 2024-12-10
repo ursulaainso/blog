@@ -4,7 +4,7 @@
     <div class="w-2/3 mx-auto card bg-base-300">
         <div class="card-body">
             <h2 class="card-title">{{ __('Reset password') }}</h2>
-            <form action="{{ route('register') }}" method="POST">
+            <form action="{{ route('password.store') }}" method="POST">
                 @csrf
 
                 <label class="w-full form-control">

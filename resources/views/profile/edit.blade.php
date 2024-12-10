@@ -2,7 +2,10 @@
 @section('title', __('Profile'))
 @section('content') 
 
-    <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+    <div class="flex w-full flex-col">
+        <div class="divider"></div>
+    </div>
+    <h2 class="font-semibold text-2xl leading-tight mt-4 ml-64">
         {{ __('Profile') }}
     </h2>
 

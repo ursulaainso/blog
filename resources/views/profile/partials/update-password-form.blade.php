@@ -2,8 +2,8 @@
 <div class="flex w-full flex-col">
 
     <h2 class="card-title">{{ __('Update password') }}</h2>
-    <p class="text-sm font-light">{{ __("Ensure your account is using a long, random password to stay secure") }}</p>
-    <form action="{{ route('password.update') }}" method="POST">
+    <p class="text-sm font-light md-2">{{ __("Ensure your account is using a long, random password to stay secure") }}</p>
+    <form action="{{ route('password.update') }}" method="PUT">
         @csrf
         <label class="w-full form-control">
             <div class="label">
@@ -39,7 +39,18 @@
             </div>
         </label>
         <div class="text-left">
-            {{-- <a class="btn btn-link" href="{{ route('login') }}">{{ __('Already registered?') }}</a> --}}
+
+            
+            @if (session('status') === 'password-updated')
+                <p
+                    data="{ show: true }"
+                    show="show"
+                    transition
+                    init="setTimeout(() => show = false, 2000)"
+                    class="text-sm text-gray-600 dark:text-gray-400"
+                >{{ __('Saved.') }}</p>
+            @endif
+
             <input type="submit" class="btn btn-primary" value="{{ __('Save') }}">
         </div>
     </form>

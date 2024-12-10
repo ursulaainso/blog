@@ -4,8 +4,8 @@
 
     <div>
         <h2 class="card-title">{{ __('Profile information') }}</h2>
-        <p class="text-sm font-light">{{ __("Update your account's profile information and email address.") }}</p>
-        <form action="{{ route('login') }}" method="POST">
+        <p class="text-sm font-light md-2">{{ __("Update your account's profile information and email address.") }}</p>
+        <form action="{{ route('profile.update') }}" method="POST">
             @csrf
             <label class="w-full form-control">
                 <div class="label">
@@ -29,7 +29,19 @@
                     @enderror
                 </div>
             </label>
+            
             <div class="text left">
+
+                @if (session('status') === 'profile-updated')
+                <p
+                    data="{ show: true }"
+                    show="show"
+                    transition
+                    init="setTimeout(() => show = false, 2000)"
+                    class="text-sm text-gray-600 dark:text-gray-400"
+                >{{ __('Saved.') }}</p>
+                @endif
+
                 <input type="submit" class="btn btn-primary" value="{{ __('Save') }}">
             </div>
         </form>
