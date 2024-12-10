@@ -9,9 +9,11 @@
             @csrf
             <label class="w-full form-control">
                 <div class="label">
-                    <span class="label-text">{{__('Name')}}</span>
+                    <span class="label-text">{{ __('Name') }}</span>
                 </div>
-                <input name="name" type="text" placeholder="Name" value="{{ old('name') }}" class="w-full input input-bordered @error('name') input-error @enderror" required autofocus autocomplete="name"/>
+                <input name="name" type="text" placeholder="Name" value="{{ old('name') }}"
+                    class="w-full input input-bordered @error('name') input-error @enderror" required autofocus
+                    autocomplete="name" />
                 <div class="label">
                     @error('email')
                         <span class="label-text-alt text-error">{{ $message }}</span>
@@ -20,9 +22,11 @@
             </label>
             <label class="w-full form-control">
                 <div class="label">
-                    <span class="label-text">{{__('Email')}}</span>
+                    <span class="label-text">{{ __('Email') }}</span>
                 </div>
-                <input name="email" type="email" placeholder="Email" value="{{ old('email') }}" class="w-full input input-bordered @error('email') input-error @enderror" required autofocus autocomplete="username"/>
+                <input name="email" type="email" placeholder="Email" value="{{ old('email') }}"
+                    class="w-full input input-bordered @error('email') input-error @enderror" required autofocus
+                    autocomplete="username" />
                 <div class="label">
                     @error('email')
                         <span class="label-text-alt text-error">{{ $message }}</span>

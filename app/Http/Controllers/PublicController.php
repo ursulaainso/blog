@@ -34,6 +34,8 @@ class PublicController extends Controller
     }
 
     public function user(User $user){
+        dump($user->followers());
+
         $posts = $user->posts()->with('user')->withCount('comments')->latest()->paginate(16);
         return view('user', compact('posts', 'user'));
     }
